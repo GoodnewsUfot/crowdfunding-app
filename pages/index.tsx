@@ -5,17 +5,38 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Modal from "../components/Modal"
 import styled from 'styled-components'
+import BasicButtons from '../components/Button'
 
 const Home: NextPage = () => {
-     const [headerText, setHeaderText] = useState("Heal")
+     const [buttonText, setButtonText] = useState("")
+     const [headerText, setHeaderText] = useState("")
      const [open, setOpen] = useState(false);
      const handleOpen = () => setOpen(true);
      const handleClose = () => setOpen(false);
-     const [modalContent, setModalContent] = useState(
-     <p>
-          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-     </p>
-     )
+     const [modalContent, setModalContent] = useState(<></>)
+
+     function Check() {
+          setHeaderText("Beal")
+          setModalContent(
+               <>
+                    <p>
+                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                    </p>
+               </>
+          )
+
+     }
+     function Check1() {
+          setHeaderText("heal")
+          setModalContent(
+               <>
+                    <p>
+                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                    </p>
+               </>
+          )
+
+     }
   return (
     <div className={styles.container}>
       <Head>
@@ -25,7 +46,9 @@ const Home: NextPage = () => {
       </Head>
 
           <p className={styles.description}>
-                    <Buttons  onClick={handleOpen} disabled={false}/>
+                    <BasicButtons ButtonText={'Check'}    onClick={()=> {handleOpen(); Check();}} disabled={false}/>
+                    <h1>nill</h1>
+                    <BasicButtons ButtonText={'Check1'}   onClick={()=> {handleOpen(); Check1();}} disabled={false}/>
           </p>
 
       <Modal 
@@ -42,8 +65,5 @@ const Home: NextPage = () => {
 
 export default Home
 
-const Buttons = styled.button`
-     
-`
 
 

@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { blue } from '@mui/material/colors';
 import styled from 'styled-components';
-// import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import { BiXCircle } from 'react-icons/bi';
 import { useState } from 'react';
 import { IconButton } from '@mui/material';
 const style = {
@@ -15,8 +15,9 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'white',
-  border: '1px solid #fff',
+//   border: '1px solid #fff',
   boxShadow: 24,
+  borderRadius: 2.5, 
 };
 
 const HighlightOff = {
@@ -57,9 +58,9 @@ export default function BasicModal(props: Modalprops) {
                {headerText}
                </Typography>
           </HeaderText>  
-          {/* <IconButton onClick={props.handleClose} sx={HighlightOff}>
-               <HighlightOffIcon />
-          </IconButton> */}
+          <IconButton onClick={props.handleClose} sx={HighlightOff}>
+               <BiXCircle />
+          </IconButton>
         </Header> 
           <Typography id="modal-modal-description" sx={{ m: 4 }}>  
                <ModalContent>
@@ -80,14 +81,15 @@ const HeaderText = styled.div`
   padding: 10px;
 `
 const Header = styled.div`
-     width: 398px;
-     /* border-radius: 8px 8px 0 0; */
+     width: 400px;
+     border-radius: 4px 4px 0 0;
      display: flex;
+     height: auto;
      justify-content: space-between;
      /* padding: 0.2rem; */
      align-items: center;
      background-color: #003366; 
-  
+     border-radius: 8px 8px 0 0;
 `
 
 const ModalContent = styled.div`
